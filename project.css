@@ -1,0 +1,94 @@
+/* Project detail pages. Builds on the tokens and components in styles.css. */
+
+:root{--term:#1d2c27;--term-ink:#d9e4d8;--amber:#f4a63b;--coral:#f06a3f}
+
+code{font:.9em var(--mono);background:#e8ede4;padding:1px 6px;border-radius:3px;overflow-wrap:anywhere}
+
+/* Let grid children shrink below their content width (long code lines scroll instead). */
+.xaya-hero>*,.why-grid>*,.feature-grid>*,.lab-grid>*,.start-grid>*{min-width:0}
+
+/* Hero */
+.xaya-hero{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;padding:40px 0 70px}
+.xaya-hero-copy h1{font-size:clamp(60px,7.5vw,100px);line-height:.98;letter-spacing:-.08em;margin:0 0 28px;font-weight:600}
+.xaya-hero-copy h1 em{font-family:var(--serif);font-size:.55em;letter-spacing:-.04em;color:#c4552c;display:inline-block;margin-top:10px}
+.back-link{display:inline-block;font:12px var(--mono);color:#7d8c85;margin-bottom:38px;transition:color .2s}
+.back-link:hover{color:#83a500}
+
+.xaya-stage{position:relative;min-height:440px}
+.xaya-icon{position:absolute;width:150px;height:150px;top:0;right:8px;z-index:2;filter:drop-shadow(0 18px 28px rgba(21,33,29,.25));transform:rotate(6deg)}
+.term{position:absolute;left:0;right:40px;top:80px;background:var(--term);color:var(--term-ink);border-radius:9px;box-shadow:18px 20px 0 #dfe9d6;overflow:hidden}
+.term-bar{display:flex;align-items:center;gap:6px;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,.07)}
+.term-bar span{width:9px;height:9px;border-radius:50%;background:#3b4c45}
+.term-bar span:first-child{background:var(--coral)}
+.term-bar small{margin-left:auto;font:11px var(--mono);color:#8a9c91}
+.term pre{margin:0;padding:26px 26px 30px;font:14px/1.75 var(--mono);white-space:pre-wrap}
+.t-dim{color:#7f9488}
+.t-key{color:var(--amber)}
+.t-str{color:#d8f36a}
+.t-prompt{color:var(--coral)}
+.t-ok{color:#d8f36a}
+.t-cursor{color:var(--amber);animation:blink 1.1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.t-cursor{animation:none}}
+
+/* Fact row */
+.fact-row{display:grid;grid-template-columns:repeat(4,1fr);margin:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fact-row div{padding:22px 20px 22px 0}
+.fact-row div+div{padding-left:20px;border-left:1px solid var(--line)}
+.fact-row dt{font:11px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:#8a978f;margin-bottom:6px}
+.fact-row dd{margin:0;font-size:17px;font-weight:600;letter-spacing:-.02em}
+.fact-row small{font:10px var(--mono);color:#c4552c;border:1px solid #f1c3ad;border-radius:10px;padding:1px 6px;margin-left:4px;vertical-align:2px}
+
+/* Why */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.lead{font-size:24px;line-height:1.5;letter-spacing:-.03em;margin:0}
+.why-copy p{color:#5d6d65;margin:0 0 18px}
+
+/* Features */
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.feature{background:#fff;border:1px solid var(--line);border-radius:6px;padding:24px 22px 26px;transition:transform .2s,border-color .2s}
+.feature:hover{transform:translateY(-3px);border-color:#c9d8c4}
+.feature-num{font:11px var(--mono);color:#c4552c}
+.feature h3{font-size:20px;letter-spacing:-.04em;margin:14px 0 8px}
+.feature p{color:#6d7b74;font-size:14px;line-height:1.65;margin:0}
+
+/* Lab */
+.lab-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:22px;align-items:stretch}
+.lab-big{background:#d6f269;border-radius:6px;padding:28px}
+.lab-label{font:11px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:#54635e}
+.lab-number{font-size:clamp(40px,5vw,64px);letter-spacing:-.06em;line-height:1;margin:26px 0 18px;font-weight:600}
+.lab-number s{color:#7b8f55;font-weight:500;text-decoration-thickness:2px}
+.lab-big small{color:#4f5f49;font-size:14px}
+.lab-table{width:100%;border-collapse:collapse;font-size:15px;align-self:start}
+.lab-table th{text-align:left;font:11px var(--mono);text-transform:uppercase;color:#8a978f;padding:0 0 12px;border-bottom:1px solid var(--line)}
+.lab-table td{padding:16px 0;border-bottom:1px solid var(--line)}
+.lab-table td+td,.lab-table th+th{text-align:right;font-family:var(--mono);font-size:14px}
+.lab-note{color:#5d6d65;font-size:15px;max-width:760px;margin:26px 0 0}
+
+/* Get started */
+.start-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
+.step-title{display:flex;align-items:center;gap:12px;font-size:19px;letter-spacing:-.03em;margin:0 0 14px}
+.step-title span{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--lime);font:12px var(--mono)}
+.code{background:var(--term);color:var(--term-ink);font:13px/1.75 var(--mono);padding:22px 24px;border-radius:6px;margin:0 0 30px;overflow-x:auto}
+.path-list{margin:0 0 18px;padding-left:22px;color:#5d6d65;line-height:2}
+.path-list code{background:#fff;border:1px solid var(--line)}
+.start-note{font-size:13px;color:#80907e;margin:0}
+
+.inline-link{color:var(--lime);border-bottom:1px solid rgba(216,243,106,.4)}
+
+@media(max-width:900px){
+  .feature-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:800px){
+  .xaya-hero{grid-template-columns:1fr;gap:40px;padding:30px 0 60px}
+  .xaya-stage{min-height:400px}
+  .xaya-icon{width:110px;height:110px;right:0}
+  .term{right:14px;top:70px}
+  .term pre{font-size:12.5px;padding:20px}
+  .fact-row{grid-template-columns:1fr 1fr}
+  .fact-row div:nth-child(3){padding-left:0;border-left:0}
+  .fact-row div:nth-child(n+3){border-top:1px solid var(--line)}
+  .why-grid,.lab-grid,.start-grid{grid-template-columns:1fr;gap:28px}
+  .lead{font-size:21px}
+  .feature-grid{grid-template-columns:1fr}
+}
